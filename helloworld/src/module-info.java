@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author DrWurzeli
- *
- */
-module helloworld {
-}
