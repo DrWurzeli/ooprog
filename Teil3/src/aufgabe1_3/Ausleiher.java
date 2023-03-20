@@ -1,3 +1,4 @@
+package aufgabe1_3;
 
 public class Ausleiher extends Person {
 	private int ausleiherNummer;
