@@ -7,8 +7,8 @@ public class EingabeTest {
 		// TODO Auto-generated method stub
 		
 		Scanner eingabe = new Scanner(System.in);
-		System.out.println("Erste Zahl eingeben: ");
 		
+		System.out.println("Erste Zahl eingeben: ");
 		int zahl1 = eingabe.nextInt();
 		
 		System.out.println("Zweite Zahl eingeben: ");
