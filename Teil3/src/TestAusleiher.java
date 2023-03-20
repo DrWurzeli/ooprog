@@ -8,7 +8,7 @@ public class TestAusleiher {
 		a1.setNachname("Mustermann");
 		a1.setAusleiherNummer(100);
 		
-		System.out.println("Name: " + a1.getNachname() + " Nummer: " + a1.getAusleiherNummer());
+		System.out.println("Name: " + a1.getNachname() + "\nNummer: " + a1.getAusleiherNummer());
 	}
 
 }
