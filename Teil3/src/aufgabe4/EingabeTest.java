@@ -14,6 +14,8 @@ public class EingabeTest {
 		System.out.println("Zweite Zahl eingeben: ");
 		int zahl2 = eingabe.nextInt();
 		
+		eingabe.close();
+		
 		int summe = zahl1 + zahl2;
 		
 		System.out.println("Die Summe von " + zahl1 + " und " + zahl2 + " ist: " +summe);
