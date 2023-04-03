@@ -22,6 +22,7 @@ public static void main (String[] args)
       System.out.println();
    } while (endwert < startwert);
 
+   //my code:
    scan.close();
    
    int numToCheck = startwert;
