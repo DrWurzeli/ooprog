@@ -26,7 +26,7 @@ public static void main (String[] args)
    
    int i = startwert;
    
-   while(i != endwert){      
+   while(i <= endwert){      
 	  if (i % 2 == 0) {
 		  i++;
 	      continue;
