@@ -24,16 +24,16 @@ public static void main (String[] args)
 
    scan.close();
    
-   int i = startwert;
+   int numToCheck = startwert;
    
-   while(i <= endwert){      
-	  if (i % 2 == 0) {
-		  i++;
+   while(numToCheck <= endwert){      
+	  if (numToCheck % 2 == 0) {
+		  numToCheck++;
 	      continue;
 	  }
 	  else {
-		  System.out.println ("Die Zahl " + i + " ist ungerade!");
-		  i++;
+		  System.out.println ("Die Zahl " + numToCheck + " ist ungerade!");
+		  numToCheck++;
 	  }
    }
 }
