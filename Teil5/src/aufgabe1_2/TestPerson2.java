@@ -23,7 +23,6 @@ public class TestPerson2 {
 			System.out.println("" + refPerson[i].getVorname() + " " + refPerson[i].getNachname() + "");
 		}
 		
-		
 	}
 
 }
