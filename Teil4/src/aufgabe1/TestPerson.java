@@ -17,6 +17,7 @@ public class TestPerson {
 		
 		System.out.println("" + p1.getVorname() + " " + p1.getNachname() + "");
 		System.out.println("" + p2.getVorname() + " " + p2.getNachname() + "");
+		System.out.println(p1);
 		
 	}
 
