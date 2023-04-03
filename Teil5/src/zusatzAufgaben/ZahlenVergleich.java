@@ -12,6 +12,8 @@ public class ZahlenVergleich
       System.out.print ("Gib die zweite Zahl ein: ");
       int zahl2 = scan.nextInt();
 
+      scan.close();
+      
       if (zahl1 > zahl2)
       {
          System.out.println("Zahl 1 ist größer als Zahl 2");
