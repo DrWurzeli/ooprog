@@ -23,6 +23,7 @@ public class TestPerson2 {
 
 		//Arrays.stream(refPerson).forEach(z -> System.out.println(z.getVorname() + " " + z.getNachname()));
 		
+		//Teil 6:
 		for (Person x : refPerson) {
             System.out.println(x.getVorname() + " " + x.getNachname());
         }
