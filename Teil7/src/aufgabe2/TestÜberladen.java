@@ -15,7 +15,9 @@ public class TestÜberladen {
 		
 		//void println (String x)
 		System.out.println("Test");
-
+		
+		String text = "Test";
+		System.out.println(text);
 	}
 
 }
