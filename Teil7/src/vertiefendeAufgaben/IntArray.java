@@ -32,13 +32,12 @@ public void expand (int anzahlElemente)
 
 public int max()
 {   
-	int size = arrayOfInt.length;
 	int max = Integer.MIN_VALUE;
 	
-	for (int i = 0; i < size; i++)
+	for (int element : arrayOfInt)
     {
-       if (arrayOfInt[i] > max) {
-    	   max = arrayOfInt[i];
+       if (element > max) {
+    	   max = element;
        }
     }
 	
@@ -47,13 +46,12 @@ public int max()
 
 public int min()
 {   
-	int size = arrayOfInt.length;
 	int min = Integer.MAX_VALUE;
 	
-	for (int i = 0; i < size; i++)
+	for (int element : arrayOfInt)
     {
-       if (arrayOfInt[i] < min) {
-    	   min = arrayOfInt[i];
+       if (element < min) {
+    	   min = element;
        }
     }
 	
