@@ -1,5 +1,11 @@
 package aufgabe2;
 
+/**
+ * 
+ * @author msander
+ * @version 2.0
+ *
+ */
 public class Buch {
 	private String titel;
 	private String isbn;
