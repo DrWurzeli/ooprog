@@ -8,6 +8,10 @@ public class TestBuch {
 		
 		meinBuch.ausgeben();
 		
+		meinBuch = new Buch("Test2", "Untertitel1", "123-456-789", 2);
+		
+		meinBuch.ausgeben();
+		
 	}
 
 }
