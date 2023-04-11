@@ -26,6 +26,11 @@ public class Buch {
 	}
 	
 	public void ausgeben() {
-		System.out.println("Titel: " + titel + "\nUntertitel: " + untertitel + "\nISBN: " + isbn + "\nAnzahl: " + anzahlExemplare);
+		if(untertitel == null) {
+			System.out.println("Titel: " + titel + "\nISBN: " + isbn + "\nAnzahl: " + anzahlExemplare);
+		}
+		else {
+			System.out.println("Titel: " + titel + "\nUntertitel: " + untertitel + "\nISBN: " + isbn + "\nAnzahl: " + anzahlExemplare);
+		}
 	}
 }
