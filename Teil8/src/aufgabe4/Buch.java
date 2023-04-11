@@ -13,14 +13,14 @@ public class Buch {
 	private int anzahlExemplare;
 	
 	public Buch(String titel, String isbn, int anzahlExemplare) {
-		this.titel = titel;
-		this.isbn = isbn;
-		this.anzahlExemplare = anzahlExemplare;
+		this(titel, null, isbn, anzahlExemplare);
 	}
 	
 	public Buch(String titel, String untertitel, String isbn, int anzahlExemplare) {
-		this(titel, isbn, anzahlExemplare);
+		this.titel = titel;
 		this.untertitel = untertitel;
+		this.isbn = isbn;
+		this.anzahlExemplare = anzahlExemplare;
 	}
 	
 	public void ausgeben() {
