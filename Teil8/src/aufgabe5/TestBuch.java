@@ -3,6 +3,8 @@ package aufgabe5;
 public class TestBuch {
 
 	public static void main(String[] args) {
+		
+		System.out.println("Anzahl verschiedener Bücher: " + Buch.getBestand());
 
 		Buch meinBuch = new Buch("Test", "123-4567-8910", 1);
 		
