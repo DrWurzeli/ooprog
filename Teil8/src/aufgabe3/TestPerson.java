@@ -7,7 +7,7 @@ public class TestPerson {
 		
 		Person refPerson = null;
 		
-		refPerson = new Person("Max", "Mustermann");
+		refPerson = new Person("Max", "Muster");
 		
 		refPerson.ausgeben();
 		
