@@ -41,8 +41,20 @@ public class Stack {
 	}
 	
 	/**
+	 * This method is used to push multiple elements to the Stack @see public void push.
+	 * Note: It was added for fun and is not part of the lecture.
+	 * @param inputIntegers Those are the elements pushed onto the Stack.
+	 * @return nothing
+	 */
+	public void pushToStack(int... inputIntegers) {
+		   for(int x : inputIntegers) {
+			   push(x);
+		   }
+	}
+	
+	/**
 	 * This method is used to take off the top element of the Stack.
-	 * @return arrayStack This returns the Stack with its index/lowerItemPosition lowered by one.
+	 * @return arrayStack This returns the Stack with its index/topItemPosition lowered by one.
 	 * Note: You can catch the popped element using: someInteger = yourStack.pop();
 	 */
 	public int pop() {
