@@ -19,7 +19,7 @@ public class TestStack
       {
          int rueckgabe;
          rueckgabe = stackRef.pop(); // oberste Zahl des Stacks
-                                     // mit pop() vom Stack geholt
+                                     // mit pop() vom Stack geholt *nehme an, dass dieses auch entfernt wird?
          System.out.println ("Die Zahl war " + rueckgabe);
       }
    }

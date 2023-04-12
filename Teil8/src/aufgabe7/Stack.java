@@ -3,27 +3,27 @@ package aufgabe7;
 public class Stack {
 	
 	private int[] arrayStack = null;
-	private int current = -1;
+	private int topItemPosition = -1;
 	
 	public Stack(int size) {
 		arrayStack = new int [size]; 
 	}
 	
-	public void push(int u) {
-		arrayStack[++current] = u;
+	public void push(int newItem) {
+		arrayStack[++topItemPosition] = newItem;
 	}
 	
 	public int pop() {
-		return arrayStack[current--];
+		return arrayStack[topItemPosition--];
 	}
 	
 	public boolean isEmpty() {
-		return current == -1;
+		return topItemPosition == -1;
 	}
 	
 	public void stackPrint() {
-		for(int x : arrayStack) {
-			System.out.println(x);
+		for(int element : arrayStack) {
+			System.out.println(element);
 		}
 	}
 }
