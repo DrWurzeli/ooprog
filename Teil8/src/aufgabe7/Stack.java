@@ -10,16 +10,24 @@ package aufgabe7;
  * When an instance of this stack is created,
  * you are able to push items to the stack and pop them off the stack.
  * To avoid exceptions you are also able to check, whether the stack is empty or not.
- * The stackPrint method is also available to print out all elements in the stack.
- * <p>
+ * The stackPrint method is also available to print out all elements in the stack.</p>
+ * 
  * @author msander
  * @version 1.3
  * @since 11th April 2023
- * <p>
+ * 
  */
 public class Stack {
 	
+	/**
+	 * The instanced array used to simulate the Stack. It's made out of Integers.
+	 */
 	private int[] arrayStack;
+	
+	/**
+	 * The index/position of the highest element in the Stack.
+	 * Starts at -1 to avoid an out of bounds experience on the final item and properly populate the first one at 0.
+	 */
 	private int topItemPosition = -1;
 	
 	/**
@@ -34,7 +42,6 @@ public class Stack {
 	 * This method is used to push new items to the Stack.
 	 * Following the last-in, first-out concept, they get placed on top of the Stack.
 	 * @param newItem This is the first and only parameter for this method and represents the number you want to push onto the Stack.
-	 * @return nothing
 	 */
 	public void push(int newItem) {
 		arrayStack[++topItemPosition] = newItem;
@@ -44,7 +51,6 @@ public class Stack {
 	 * This method is used to push multiple elements to the Stack @see public void push.
 	 * Note: It was added for fun and is not part of the lecture.
 	 * @param inputIntegers Those are the elements pushed onto the Stack.
-	 * @return nothing
 	 */
 	public void pushToStack(int... inputIntegers) {
 		   for(int x : inputIntegers) {
