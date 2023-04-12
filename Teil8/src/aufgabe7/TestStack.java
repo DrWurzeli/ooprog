@@ -15,7 +15,7 @@ public class TestStack
       stackRef.stackPrint();
 
       System.out.println ("\nAusgabe der Zahlen: ");
-      while (stackRef.isEmpty() == false)
+      while (!stackRef.isEmpty())
       {
          int rueckgabe;
          rueckgabe = stackRef.pop(); // oberste Zahl des Stacks
