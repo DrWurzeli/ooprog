@@ -7,6 +7,9 @@ public class TestAusleiher {
 		Ausleiher a1 = new Ausleiher("Max", "Mustermann", 100);
 		
 		a1.ausgeben();
+		
+		Person p1 = a1;
+		p1.ausgeben();
 	}
 
 }
