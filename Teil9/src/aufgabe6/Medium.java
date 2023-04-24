@@ -21,6 +21,11 @@ public class Medium {
 	}
 	
 	public void ausgeben() {
-			System.out.println("Titel: " + titel + "\nUntertitel: " + untertitel + "\nNummer: " + mediumNummer + "\nAnzahl: " + anzahlExemplare);
+			if (untertitel == "") {
+				System.out.println("Titel: " + titel + "\nNummer: " + mediumNummer + "\nAnzahl: " + anzahlExemplare);
+			}
+			else {
+				System.out.println("Titel: " + titel + "\nUntertitel: " + untertitel + "\nNummer: " + mediumNummer + "\nAnzahl: " + anzahlExemplare);
+			}
 	}
 }

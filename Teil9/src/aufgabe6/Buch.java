@@ -3,7 +3,7 @@ package aufgabe6;
 public class Buch extends Medium{
 	
 	private static int buchBestand;
-		
+	
 	public Buch(String titel, String untertitel, String mediumNummer, int anzahlExemplare) {
 		super(titel, untertitel, mediumNummer, anzahlExemplare);
 		buchBestand++;
