@@ -10,6 +10,7 @@ public class TestAusleiher {
 		
 		Person p1 = a1;
 		p1.ausgeben();
+		
 	}
 
 }
