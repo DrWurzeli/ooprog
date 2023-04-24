@@ -14,7 +14,7 @@ public class TestAusleiher {
 		System.out.println(a2.getAusleiherNummer());
 		
 		a1.ausgeben();
-		System.out.println("\nNummer: " + a1.getAusleiherNummer());
+		System.out.println("Nummer a1: " + a1.getAusleiherNummer());
 	}
 
 }
