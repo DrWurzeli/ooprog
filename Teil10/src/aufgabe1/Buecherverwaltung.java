@@ -18,6 +18,7 @@ public class Buecherverwaltung
       Scanner eingabe = new Scanner (System.in);
       int auswahl = eingabe.nextInt();
       eingabe.nextLine(); // Zeilenumbruch einlesen.
+      eingabe.close();
 
       switch (auswahl){
          case 1:{
