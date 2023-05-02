@@ -18,6 +18,7 @@ public class Buch extends Medium{
 	}
 	
 	@Override
+	//not really though, protected variables in Medium necessary to change output. this just calls medium ausgeben()
 	public void ausgeben() {
 			super.ausgeben();
 	}
