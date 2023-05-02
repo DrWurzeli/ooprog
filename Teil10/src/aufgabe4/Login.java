@@ -7,7 +7,7 @@ public class Login {
 		if (benutzer.equals("Test") && passwort.equals("12345")) {
 			this.angemeldet = true;
 		}
-		else if (angemeldet == true) {
+		else if (angemeldet) {
 			System.out.println("Bereits angemeldet.");
 		}
 		else {

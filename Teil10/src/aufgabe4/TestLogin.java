@@ -13,6 +13,8 @@ public class TestLogin {
       benutzer = input.next();
       System.out.print ("Bitte geben Sie das Passwort ein:");
       passwort = input.next();
+      
+      input.close();
        
       try{
          System.out.println ("Sie werden angemeldet ...");
