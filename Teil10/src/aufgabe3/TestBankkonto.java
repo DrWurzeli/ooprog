@@ -2,28 +2,23 @@ package aufgabe3;
 
 public class TestBankkonto
 {
-   public static void main (String[] args)
-   {
+   public static void main (String[] args){
       Bankkonto konto = new Bankkonto();
       double betrag;
       System.out.println ("Kontostand: " + konto.getKontostand());
       
-      try
-      {
+      try{
          betrag = 123.45;
          System.out.println();
          System.out.println ("Einzahlung: " + betrag);
          konto.einzahlen (betrag);
-         System.out.println ("Kontostand: " +
-                             konto.getKontostand());
+         System.out.println ("Kontostand: " + konto.getKontostand());
       }
-      catch (TransaktionsException ex)
-      {
+      catch (TransaktionsException ex){
          System.out.println (ex.getMessage());
       }
 
-      try
-      {
+      try{
          //Negative Einzahlung
          betrag = -12.45;
          System.out.println();
@@ -32,52 +27,42 @@ public class TestBankkonto
          System.out.println ("Kontostand: " + 
                              konto.getKontostand());
       }
-      catch (TransaktionsException ex)
-      {
+      catch (TransaktionsException ex){
          System.out.println (ex.getMessage());
       }
       
-      try
-      {
+      try{
          //Negative Auszahlung
          betrag = -12.45;
          System.out.println();
          System.out.println ("Auszahlung: " + betrag);
          konto.auszahlen (betrag);
-         System.out.println ("Kontostand: " + 
-                             konto.getKontostand());
+         System.out.println ("Kontostand: " + konto.getKontostand());
       }
-      catch (TransaktionsException ex)
-      {
+      catch (TransaktionsException ex){
          System.out.println (ex.getMessage());
       }
 
-      try
-      {
+      try{
          betrag = 12;
          System.out.println();
          System.out.println ("Auszahlung: " + betrag);
          konto.auszahlen (betrag);
-         System.out.println ("Kontostand: " + 
-                             konto.getKontostand());
+         System.out.println ("Kontostand: " + konto.getKontostand());
       }
-      catch (TransaktionsException ex)
-      {
+      catch (TransaktionsException ex){
          System.out.println (ex.getMessage());
       }
 
-      try
-      {
+      try{
          //Konto Ueberziehen
          betrag = 130;
          System.out.println();
          System.out.println ("Auszahlung: " + betrag);
          konto.auszahlen (betrag);
-         System.out.println ("Kontostand: " + 
-                             konto.getKontostand());
+         System.out.println ("Kontostand: " + konto.getKontostand());
       }
-      catch (TransaktionsException ex)
-      {
+      catch (TransaktionsException ex){
          System.out.println (ex.getMessage());
       }
    }
