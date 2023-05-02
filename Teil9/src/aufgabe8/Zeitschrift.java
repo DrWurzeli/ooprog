@@ -18,6 +18,6 @@ public class Zeitschrift extends Medium{
 	
 	@Override
 	public String toString() {
-		return super.toString().replace("Nummer", "ISSN");
+		return "[Zeitschrift]\n" + super.toString().replace("Nummer", "ISSN");
 	}
 }

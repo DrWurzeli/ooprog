@@ -19,6 +19,6 @@ public class Buch extends Medium{
 	
 	@Override
 	public String toString() {
-		return super.toString().replace("Nummer", "ISBN");
+		return "[Buch]\n" + super.toString().replace("Nummer", "ISBN");
 	}
 }
