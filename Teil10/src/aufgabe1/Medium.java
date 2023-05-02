@@ -1,5 +1,7 @@
 package aufgabe1;
 
+import java.util.Scanner;
+
 public class Medium {
 	private String titel;
 	private String untertitel;
@@ -22,6 +24,15 @@ public class Medium {
 		this.untertitel = untertitel;
 		this.mediumNummer = mediumNummer;
 		this.anzahlExemplare = anzahlExemplare;
+	}
+	
+	public Medium(Scanner eingabe) {
+		System.out.println("Bitte Titel eingeben:");
+		this.titel = eingabe.nextLine();
+		System.out.println("Bitte Untertitel eingeben: ");
+		this.untertitel = eingabe.nextLine();
+		System.out.println("Bitte Anzahl Exemplare eingeben: ");
+		this.anzahlExemplare = eingabe.nextInt();
 	}
 	
 	@Override

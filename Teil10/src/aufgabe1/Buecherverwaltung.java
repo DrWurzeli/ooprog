@@ -18,11 +18,10 @@ public class Buecherverwaltung
       Scanner eingabe = new Scanner (System.in);
       int auswahl = eingabe.nextInt();
       eingabe.nextLine(); // Zeilenumbruch einlesen.
-      eingabe.close();
 
       switch (auswahl){
          case 1:{
-            //arr [Buch.getBestand()] = new Buch (eingabe);
+            arr [Buch.getBuchBestand()] = new Buch(eingabe);
             auswahlAnzeigen();
             break;
          }
@@ -37,10 +36,12 @@ public class Buecherverwaltung
          default:
             System.out.println ("Falsche Eingabe");
        }
+      
+      eingabe.close();
    }
 
    private void bestandAusgeben(){
-      for (int i = 0; i < Buch.getBestand(); i++)
+      for (int i = 0; i < Buch.getBuchBestand(); i++)
          System.out.println (arr[i]);
    }
 
