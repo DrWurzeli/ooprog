@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Buch extends Medium{
 	
-	private String mediumNummer;
 	private static int buchBestand;
 	
 	public Buch(String titel, String untertitel, String mediumNummer, int anzahlExemplare) {

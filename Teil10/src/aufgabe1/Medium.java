@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Medium {
 	private String titel;
 	private String untertitel;
-	private String mediumNummer;
+	protected String mediumNummer;
 	private int anzahlExemplare;
 	
 	private static int bestand = 0;
