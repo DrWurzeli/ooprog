@@ -17,4 +17,8 @@ public class Buch extends Medium{
 		return buchBestand;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString().replace("Nummer", "ISBN");
+	}
 }

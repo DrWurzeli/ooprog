@@ -16,4 +16,8 @@ public class Zeitschrift extends Medium{
 		return zeitschriftBestand;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString().replace("Nummer", "ISSN");
+	}
 }
