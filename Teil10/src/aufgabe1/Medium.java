@@ -27,20 +27,22 @@ public class Medium {
 	}
 	
 	public Medium(Scanner eingabe) {
+		System.out.println("Bitte Titel eingeben:");
+		this.titel = eingabe.nextLine();
+		System.out.println("Bitte Untertitel eingeben: ");
+		this.untertitel = eingabe.nextLine();
+		
 		try {
-			System.out.println("Bitte Titel eingeben:");
-			this.titel = eingabe.nextLine();
-			System.out.println("Bitte Untertitel eingeben: ");
-			this.untertitel = eingabe.nextLine();
 			System.out.println("Bitte Anzahl Exemplare eingeben: ");
 			this.anzahlExemplare = eingabe.nextInt();
 		}
 		catch(InputMismatchException e) {
 			System.out.println("Es gab einen Fehler bei der Eingabe.");
-			//e.printStackTrace();
+			this.anzahlExemplare = 0;
+			System.out.println("Anzahl auf 0 gesetzt.");
 		}
 		finally {
-			//System.out.println("Eingabe verarbeitet.");
+			eingabe.nextLine();
 		}
 	}
 	
