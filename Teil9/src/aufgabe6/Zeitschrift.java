@@ -8,6 +8,10 @@ public class Zeitschrift extends Medium{
 		super(titel, untertitel, mediumNummer, anzahlExemplare);
 	}
 	
+	public Zeitschrift(String titel, String mediumNummer, int anzahlExemplare) {
+		super(titel, mediumNummer, anzahlExemplare);
+	}
+	
 	public static int getZeitschriftBestand() {
 		return zeitschriftBestand;
 	}

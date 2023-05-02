@@ -12,6 +12,10 @@ public class Medium {
 		return bestand;
 	}
 	
+	public Medium(String titel, String mediumNummer, int anzahlExemplare) {
+		this(titel, null, mediumNummer, anzahlExemplare);
+	}
+	
 	public Medium(String titel, String untertitel, String mediumNummer, int anzahlExemplare) {
 		bestand++;
 		this.titel = titel;
@@ -21,7 +25,7 @@ public class Medium {
 	}
 	
 	public void ausgeben() {
-			if (untertitel == "") {
+			if (untertitel == "" || untertitel == null) {
 				System.out.println("Titel: " + titel + "\nNummer: " + mediumNummer + "\nAnzahl: " + anzahlExemplare);
 			}
 			else {

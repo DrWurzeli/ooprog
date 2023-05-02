@@ -9,6 +9,10 @@ public class Buch extends Medium{
 		buchBestand++;
 	}
 	
+	public Buch(String titel, String mediumNummer, int anzahlExemplare) {
+		super(titel, mediumNummer, anzahlExemplare);
+	}
+	
 	public static int getBuchBestand() {
 		return buchBestand;
 	}
