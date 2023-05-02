@@ -4,14 +4,14 @@ public class Login {
 	private boolean angemeldet = false;
 	
 	public void anmelden(String benutzer, String passwort) throws ZugriffUngueltigException {
-		if (benutzer.equals("Test") && passwort.equals("12345")) {
-			this.angemeldet = true;
-		}
-		else if (angemeldet) {
+		if (angemeldet) {
 			System.out.println("Bereits angemeldet.");
 		}
+		else if (benutzer.equals("Test") && passwort.equals("12345")) {
+			this.angemeldet = true;
+		}
 		else {
-			throw new ZugriffUngueltigException("Ungueltige Anmeldedaten");
+			throw new ZugriffUngueltigException("Anmeldung fehlgeschlagen.");
 		}
 	}
 	
