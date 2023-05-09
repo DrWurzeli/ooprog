@@ -17,7 +17,7 @@ public class Buecherverwaltung
    private void auswahlAuswerten(){
       Scanner eingabe = new Scanner (System.in);
       int auswahl = eingabe.nextInt();
-      eingabe.nextLine(); // Zeilenumbruch einlesen.
+      eingabe.nextLine();
 
       switch (auswahl){
          case 1:{
