@@ -18,10 +18,12 @@ public class TestMedienArray
       System.out.println ("\nNur Zeitschriften erlaubt:");
       MedienArray<Zeitschrift> zeitArr = new MedienArray<Zeitschrift>();
       zeitArr.einfuegen(z1);
+      zeitArr.ausgeben();
       
       System.out.println ("\nBücher und Zeitschriften erlaubt:");
       MedienArray<Medium> medArr = new MedienArray<Medium>();
       medArr.einfuegen(buch1);
       medArr.einfuegen(z1);
+      medArr.ausgeben();
    }
 }
