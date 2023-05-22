@@ -15,7 +15,8 @@ public static void main (String args[]){
    System.out.println ("Anzahl verschiedene Medien: "
                + (Buch.getBestand() + Zeitschrift.getBestand()));
    
-   Zeitschrift z1 = (Zeitschrift) stack.pop();
+   @SuppressWarnings("unused")
+Zeitschrift z1 = (Zeitschrift) stack.pop();
 
    stack.stackPrint();
 }

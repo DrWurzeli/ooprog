@@ -24,6 +24,7 @@ public class Stack<T> {
 	}
 	
 	//specific return of T type
+	@SuppressWarnings("unchecked")
 	public T pop(){
 	   position--;
 	   return (T)stack[position];
