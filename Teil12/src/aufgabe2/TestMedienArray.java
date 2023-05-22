@@ -25,5 +25,10 @@ public class TestMedienArray
       medArr.einfuegen(buch1);
       medArr.einfuegen(z1);
       medArr.ausgeben();
+      
+      System.out.println("\nSortiere...");
+      medArr.sortieren();
+      medArr.ausgeben();
+      
    }
 }

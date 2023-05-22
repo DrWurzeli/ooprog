@@ -1,5 +1,7 @@
 package aufgabe2;
 
+import java.util.Arrays;
+
 public class MedienArray<T extends Medium> {
 	
 	private int fuellstand = 0;
@@ -14,5 +16,9 @@ public class MedienArray<T extends Medium> {
 	   {
 	      System.out.println(arr[i]);
 	   }
+	}
+	
+	public void sortieren() {
+		Arrays.sort(arr, 0, fuellstand);
 	}
 }

@@ -1,6 +1,6 @@
 package aufgabe2;
 
-public class Medium {
+public class Medium implements Comparable<Medium>{
 	private String titel;
 	private String untertitel;
 	private String mediumNummer;
@@ -10,6 +10,10 @@ public class Medium {
 	
 	public static int getBestand() {
 		return bestand;
+	}
+	
+	public int compareTo(Medium ref) {
+		return mediumNummer.compareTo(ref.mediumNummer);
 	}
 	
 	public Medium(String titel, String mediumNummer, int anzahlExemplare) {
