@@ -1,5 +1,6 @@
 package aufgabe4;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Medium implements Comparable<Medium>{
