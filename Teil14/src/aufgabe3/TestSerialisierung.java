@@ -28,7 +28,5 @@ public class TestSerialisierung {
 		System.out.println((Ausleiher)ois.readObject());
 		
 		ois.close();
-		
 	}
-
 }
