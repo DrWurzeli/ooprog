@@ -1,5 +1,5 @@
 package aufgabe4;
-
+//this was supposed to be task12 but I overwrote it doing task14 and did not want to change it back.
 import java.util.ArrayList;
 import java.util.Collections;
 import java.io.*;
