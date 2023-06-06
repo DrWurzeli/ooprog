@@ -2,6 +2,7 @@ package aufgabe4;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.*;
 import java.util.Scanner;
 
 public class Buecherverwaltung
@@ -12,7 +13,8 @@ public class Buecherverwaltung
       System.out.println("\nBitte Zahl und dann RETURN eingeben:");
       System.out.println ("<1> Buch anlegen");
       System.out.println ("<2> Bestand ausgeben");
-      System.out.println ("<3> Beenden");
+      System.out.println ("<3> Bestand speichern");
+      System.out.println ("<4> Beenden");
       auswahlAuswerten();
    }
 
@@ -32,7 +34,19 @@ public class Buecherverwaltung
             auswahlAnzeigen();
             break;
          }
-         case 3:
+         case 3:{
+        	 try {
+				bestandSpeichern();
+        	 }
+        	 catch (FileNotFoundException e) {
+				System.out.println("There was an error saving the file: " + e);
+			 }
+        	 finally {
+        		 auswahlAnzeigen();
+        	 }
+             break;
+         }
+         case 4:
             break;
 
          default:
@@ -42,6 +56,18 @@ public class Buecherverwaltung
       eingabe.close();
    }
 
+   private void bestandSpeichern() throws FileNotFoundException {
+	   PrintStream pos = new PrintStream(
+			   new FileOutputStream("daten.txt"));
+	   
+	   for(Buch x : arr) {
+		   pos.println(x + " :");
+	   }
+	   
+	   pos.close();
+	   
+   }
+      
    private void bestandAusgeben(){
 	  Collections.sort(arr);
       for (Buch x : arr)
