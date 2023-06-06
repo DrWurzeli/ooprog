@@ -8,6 +8,10 @@ import java.util.Scanner;
 public class Buecherverwaltung
 {
    private ArrayList<Buch> arr = new ArrayList<Buch>();
+   
+   public Buecherverwaltung(String dateiname){
+	   bestandLaden(dateiname);
+   }
 
    public void auswahlAnzeigen(){
       System.out.println("\nBitte Zahl und dann RETURN eingeben:");
@@ -35,18 +39,12 @@ public class Buecherverwaltung
             break;
          }
          case 3:{
-        	 try {
-				bestandSpeichern();
-        	 }
-        	 catch (FileNotFoundException e) {
-				System.out.println("There was an error saving the file: " + e);
-			 }
-        	 finally {
-        		 auswahlAnzeigen();
-        	 }
+        	 bestandSpeichern();
+        	 auswahlAnzeigen();
              break;
          }
          case 4:
+        	System.out.println("\nBuecherverwaltung beendet.");
             break;
 
          default:
@@ -55,10 +53,37 @@ public class Buecherverwaltung
       
       eingabe.close();
    }
+   
+   private void bestandLaden(String dateiname) {
+	   File file = new File(dateiname);
+	   if(file.exists()) {
+		   try{
+			   Scanner fileInputScanner = new Scanner(
+					   new FileInputStream(file));
+			   fileInputScanner.useDelimiter("\\s*:\\s*");
+			   while(fileInputScanner.hasNext()) {
+				   fileInputScanner.next();
+				   arr.add(
+						   new Buch (fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.nextInt())
+						   );
+			   }
+			   fileInputScanner.close();
+		   }
+		   catch (FileNotFoundException e) {
+			   System.out.println("Error while reading file: " + e);
+		   }
+	   }
+   }
 
-   private void bestandSpeichern() throws FileNotFoundException {
-	   PrintStream pos = new PrintStream(
-			   new FileOutputStream("daten.txt"));
+   private void bestandSpeichern(){
+	   PrintStream pos = null;
+	   
+	   try {
+		   pos = new PrintStream(new FileOutputStream("daten.txt"));
+	   }
+	   catch (FileNotFoundException e) {
+		   System.out.println("Error on saving file: " + e);
+	   }
 	   
 	   for(Buch x : arr) {
 		   pos.println(x + " :");
@@ -75,7 +100,7 @@ public class Buecherverwaltung
    }
 
    public static void main (String args[]){
-      Buecherverwaltung bibliothek = new Buecherverwaltung();
+      Buecherverwaltung bibliothek = new Buecherverwaltung("daten.txt");
       bibliothek.auswahlAnzeigen();
    }
 }
