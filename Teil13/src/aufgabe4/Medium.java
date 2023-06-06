@@ -53,7 +53,7 @@ public class Medium implements Comparable<Medium>{
 	@Override
 	public String toString() {
 			if (untertitel == "" || untertitel == null) {
-				return titel + " : " + mediumNummer + " : " + anzahlExemplare;
+				return titel + " : " + "" + " : " + mediumNummer + " : " + anzahlExemplare;
 			}
 			else {
 				return titel + " : " + untertitel + " : " + mediumNummer + " : " + anzahlExemplare;

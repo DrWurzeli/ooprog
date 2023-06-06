@@ -48,7 +48,7 @@ public class Buecherverwaltung
             break;
 
          default:
-            System.out.println ("Falsche Eingabe");
+            System.out.println ("Ungueltige Eingabe");
        }
       
       eingabe.close();
@@ -60,12 +60,12 @@ public class Buecherverwaltung
 		   try{
 			   Scanner fileInputScanner = new Scanner(
 					   new FileInputStream(file));
+			   
 			   fileInputScanner.useDelimiter("\\s*:\\s*");
+			   
 			   while(fileInputScanner.hasNext()) {
 				   fileInputScanner.next();
-				   arr.add(
-						   new Buch (fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.nextInt())
-						   );
+				   arr.add(new Buch (fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.nextInt()));
 			   }
 			   fileInputScanner.close();
 		   }
@@ -80,13 +80,13 @@ public class Buecherverwaltung
 	   
 	   try {
 		   pos = new PrintStream(new FileOutputStream("daten.txt"));
+		   for(Buch x : arr) {
+			   pos.println(x + " :");
+		   }
+		   System.out.println("Speichern erfolgreich.");
 	   }
 	   catch (FileNotFoundException e) {
 		   System.out.println("Error on saving file: " + e);
-	   }
-	   
-	   for(Buch x : arr) {
-		   pos.println(x + " :");
 	   }
 	   
 	   pos.close();
