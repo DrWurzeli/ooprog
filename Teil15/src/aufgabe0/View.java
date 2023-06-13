@@ -10,6 +10,8 @@ public class View {
 		JFrame frame = new JFrame("Testfenster");
 		JButton btn1 = new JButton ("Testbutton");
 		
+		btn1.addActionListener(new ButtonController());
+		
 		frame.setLayout(new FlowLayout());
 		
 		frame.add(btn1);
