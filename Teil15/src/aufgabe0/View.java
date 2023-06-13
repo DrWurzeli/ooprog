@@ -3,7 +3,7 @@ package aufgabe0;
 import java.awt.*;
 import javax.swing.*;
 
-public class SwingTest {
+public class View {
 
 	public static void main(String[] args) {
 		
