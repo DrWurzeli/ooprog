@@ -1,3 +1,5 @@
+package aufgabe4;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.Dimension;
@@ -30,10 +32,10 @@ public class Buecherverwaltung extends JFrame
          public void windowClosing (WindowEvent e)
          {
             // Referenz auf Objekt vom Typ MediumVerwaltung holen.
-            MediumVerwaltung buecher = 
+            MediumVerwaltung buecher = MediumVerwaltung.getRefToInstance();
             // B�cherbestand mit Hilfe des Objektes vom Typ
             // MediumVerwaltung in der Datei speichern.
-            . . . . .
+            buecher.bestandSpeichern();
          }
       });
 
@@ -45,34 +47,35 @@ public class Buecherverwaltung extends JFrame
    private void dialogAufbauen()
    {
       // Controller-Objekt vom Typ ButtonController erzeugen.
-      ButtonController controller = . . . . .
+      ButtonController controller = new ButtonController();
 
       JButton buchAufnehmen = new JButton ("Buch aufnehmen");
       buchAufnehmen.setActionCommand ("Buch aufnehmen");
       buchAufnehmen.addActionListener(controller);
 
       JButton ausleiherAufnehmen = new JButton ("Ausleiher aufnehmen");
+      ausleiherAufnehmen.setActionCommand("Ausleiher aufnehmen");
+      ausleiherAufnehmen.addActionListener(controller);
 
       JButton bestandAnzeigen = new JButton ("Bestand anzeigen");
-      . . . . .
-      . . . . .
+      bestandAnzeigen.setActionCommand("Bestand anzeigen");
+      bestandAnzeigen.addActionListener(controller);
 
       JButton ausleihe = new JButton ("Buchausleihe erfassen");
       JButton rueckgabe = new JButton ("Buchrückgabe erfassen");
 
-      // 5 Schaltfl�chen dem Hauptfenster hinzuf�gen.
-      add (buchAufnehmen);
-      . . . . .
-      . . . . .
-      . . . . .
-      . . . . .
+      // 5 Schaltflächen dem Hauptfenster hinzufügen.
+      this.add(buchAufnehmen);
+      this.add(ausleiherAufnehmen);
+      this.add(bestandAnzeigen);
+      this.add(ausleihe);
+      this.add(rueckgabe);
    }
 
    public static void main (String args[])
    {
       Buecherverwaltung fenster = new Buecherverwaltung();
    }
-}
 
 class ButtonController implements ActionListener
 {
@@ -80,13 +83,13 @@ class ButtonController implements ActionListener
    {
       if (e.getActionCommand() == "Buch aufnehmen")
       {
-         BuchAufnehmenGUI b = new BuchAufnehmenGUI (Buecherverwaltung.this);
+         BuchAufnehmenGUI b = new BuchAufnehmenGUI(Buecherverwaltung.this);
       }
-      // Falls Schaltfl�che "Bestand anzeigen" gedr�ckt wurde, erzeuge den
+      // Falls Schaltfläche "Bestand anzeigen" gedrückt wurde, erzeuge den
       // Dialog BestandAnzeigenGUI.
-      else if (. . . . .)
-      {
-         . . . . .
+      else if (e.getActionCommand() == "Bestand anzeigen"){
+         BestandAnzeigenGUI b = new BestandAnzeigenGUI(Buecherverwaltung.this);
       }
    }
+}
 }

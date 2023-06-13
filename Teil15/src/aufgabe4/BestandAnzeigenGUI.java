@@ -1,3 +1,5 @@
+package aufgabe4;
+
 import javax.swing.JTable;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -10,7 +12,7 @@ import javax.swing.table.TableRowSorter;
 import aufgabe4.entitaeten.Buch;
 import aufgabe4.entitaeten.MediumVerwaltung;
 
-public class BestandAnzeigenGUI . . . . .
+public class BestandAnzeigenGUI extends JDialog
 {
    private static final long serialVersionUID = 1L;
 
@@ -26,10 +28,10 @@ public class BestandAnzeigenGUI . . . . .
 
    private void dialogAufbauen()
    {
-      // Model f�r die Tabelle anlegen. Die Implementierung der Klasse
+      // Model für die Tabelle anlegen. Die Implementierung der Klasse
       // TableModel finden Sie unterhalb der Klasse BestandAnzeigenGUI.
       TableModel model = new TableModel();
-      // Tabelle anlegen und Referenz auf Model �bergeben.
+      // Tabelle anlegen und Referenz auf Model übergeben.
       JTable table = new JTable (model);
 
       // Tabelle mit Sortierfunktion ausstatten
@@ -40,15 +42,15 @@ public class BestandAnzeigenGUI . . . . .
       JScrollPane scrollingTable = new JScrollPane (table, 
                     ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
                     ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-      // Die bevorzugte Gr��e des scrollbaren GUI-Containers wird gesetzt.
+      // Die bevorzugte Größe des scrollbaren GUI-Containers wird gesetzt.
       scrollingTable.setPreferredSize (new Dimension (500, 100));
-      // Hinzuf�gen des GUI-Containers zum Dialogfenster.
+      // Hinzufügen des GUI-Containers zum Dialogfenster.
       add (scrollingTable);
    }
 }
 
 
-// Eigenes Model f�r die GUI-Komponente JTable. Ein Model f�r eine GUI-
+// Eigenes Model für die GUI-Komponente JTable. Ein Model für eine GUI-
 // Komponten JTable muss von der abstrakten Klasse AbstractTableModel
 // ableiten.
 class TableModel extends AbstractTableModel
@@ -56,40 +58,40 @@ class TableModel extends AbstractTableModel
    // AbstractTableModel setzt eindeutige serialVersionUID voraus.
    private static final long serialVersionUID = 1L;
 
-   // Spaltennamen f�r die Tabelle festlegen.
+   // Spaltennamen für die Tabelle festlegen.
    private String[] columnNames = { "Titel", "Untertitel", "ISBN", "Anzahl"}; 
 
-   private MediumVerwaltung buecher = . . . . .
+   private MediumVerwaltung buecher = MediumVerwaltung.getRefToInstance();
 
-   // �berschriebene Methode zur R�ckgabe des Spaltennamens.
+   // Überschriebene Methode zur Rückgabe des Spaltennamens.
    public String getColumnName (int col) 
    {
-      return . . . . .
+      return columnNames[col];
    }
 
-   // �berschriebene Methode zur R�ckgabe der Spaltenanzahl.
+   // Überschriebene Methode zur Rückgabe der Spaltenanzahl.
    public int getColumnCount() 
    {
       return Array.getLength (columnNames);
    }
-
-   // �berschriebene Methode zur R�ckgabe der Zeilenanzahl.
+   
+   // Überschriebene Methode zur Rückgabe der Zeilenanzahl.
    public int getRowCount() 
    {
-      . . . . .
+      return buecher.getSize();
    }
 
-   // �berschriebene Methode zur R�ckgabe des Wertes einer Zelle.
+   // Überschriebene Methode zur Rückgabe des Wertes einer Zelle.
    public Object getValueAt (int row, int column) 
    {
       Buch ref = buecher.getBuch (row);
       if (column == 0)
          return ref.getTitel();
-      else if (. . . . .)
+      else if (column == 1)
          return ref.getUnterTitel();
-      else if (. . . . .)
-         return . . . . .
+      else if (column == 2)
+         return ref.getMediumNummer();
       else
-         return . . . . .
+         return ref.getAnzahlExemplare();
    }
 }
