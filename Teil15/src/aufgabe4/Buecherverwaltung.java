@@ -46,7 +46,7 @@ public class Buecherverwaltung extends JFrame {
       ButtonController controller = new ButtonController();
 
       JButton buchAufnehmen = new JButton ("Buch aufnehmen");
-      buchAufnehmen.setActionCommand ("Buch aufnehmen");
+      buchAufnehmen.setActionCommand ("addBook");
       buchAufnehmen.addActionListener(controller);
 
       JButton ausleiherAufnehmen = new JButton ("Ausleiher aufnehmen");
@@ -54,14 +54,14 @@ public class Buecherverwaltung extends JFrame {
       ausleiherAufnehmen.addActionListener(controller);
 
       JButton bestandAnzeigen = new JButton ("Bestand anzeigen");
-      bestandAnzeigen.setActionCommand("Bestand anzeigen");
+      bestandAnzeigen.setActionCommand("getBooks");
       bestandAnzeigen.addActionListener(controller);
 
       JButton ausleihe = new JButton ("Buchausleihe erfassen");
       JButton rueckgabe = new JButton ("Buchrückgabe erfassen");
       
       JButton close = new JButton("Programm beenden");
-      close.setActionCommand("Programm beenden");
+      close.setActionCommand("quitApp");
       close.addActionListener(controller);
 
       // 5 Schaltflächen dem Hauptfenster hinzufügen.
@@ -80,16 +80,19 @@ public class Buecherverwaltung extends JFrame {
    class ButtonController implements ActionListener {
 	   public void actionPerformed (ActionEvent e) {
 		  switch(e.getActionCommand()) {
-		  	case "Buch aufnehmen":
+		  	case "addBook":
 				new BuchAufnehmenGUI(Buecherverwaltung.this);
 				break;
-		  	case "Bestand anzeigen":
+		  	case "getBooks":
 		  		new BestandAnzeigenGUI(Buecherverwaltung.this);
 		  		break;
-		  	case "Programm beenden":
+		  	case "quitApp":
 		  		MediumVerwaltung.getRefToInstance().bestandSpeichern();
 		        setVisible(false);
 		        dispose();
+		        break;
+		    default:
+		    	throw new IllegalArgumentException("What did you click?? :" + e.getActionCommand());
 		  }
 	   }
 	}
