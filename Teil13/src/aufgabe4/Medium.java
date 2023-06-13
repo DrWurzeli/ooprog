@@ -33,27 +33,30 @@ public class Medium implements Comparable<Medium>{
 		System.out.println("Bitte Untertitel eingeben: ");
 		this.untertitel = eingabe.nextLine();
 		
-		try {
-			System.out.println("Bitte Anzahl Exemplare eingeben: ");
-			this.anzahlExemplare = eingabe.nextInt();
-		}
-		catch(InputMismatchException e) {
-			System.out.println("Es gab einen Fehler bei der Eingabe.");
-			this.anzahlExemplare = 0;
-			System.out.println("Anzahl auf 0 gesetzt.");
-		}
-		finally {
-			eingabe.nextLine();
-		}
+	    while (true){
+	    	try{
+	            System.out.print("Bitte geben Sie die Exemplare ein: ");
+	            anzahlExemplare = eingabe.nextInt();
+	            break;
+	        }
+	        catch (InputMismatchException e){
+	            System.out.println ("Falsche Eingabe!");
+	            System.out.println ("Bitte eine ganze Zahl eingeben!");
+	        }
+	    	finally{
+	            eingabe.nextLine();
+	        }
+	    }
+	    bestand++;
 	}
 	
 	@Override
 	public String toString() {
 			if (untertitel == "" || untertitel == null) {
-				return "Titel: " + titel + "\nNummer: " + mediumNummer + "\nAnzahl: " + anzahlExemplare;
+				return titel + " : " + "" + " : " + mediumNummer + " : " + anzahlExemplare;
 			}
 			else {
-				return "Titel: " + titel + "\nUntertitel: " + untertitel + "\nNummer: " + mediumNummer + "\nAnzahl: " + anzahlExemplare;
+				return titel + " : " + untertitel + " : " + mediumNummer + " : " + anzahlExemplare;
 			}
 	}
 

@@ -6,10 +6,11 @@ public class Zeitschrift extends Medium{
 	
 	public Zeitschrift(String titel, String untertitel, String mediumNummer, int anzahlExemplare) {
 		super(titel, untertitel, mediumNummer, anzahlExemplare);
+		zeitschriftBestand++;
 	}
 	
 	public Zeitschrift(String titel, String mediumNummer, int anzahlExemplare) {
-		super(titel, mediumNummer, anzahlExemplare);
+		this(titel, "", mediumNummer, anzahlExemplare);
 	}
 	
 	public static int getZeitschriftBestand() {
@@ -18,6 +19,6 @@ public class Zeitschrift extends Medium{
 	
 	@Override
 	public String toString() {
-		return "[Zeitschrift]\n" + super.toString().replace("Nummer", "ISSN");
+		return "[Zeitschrift]: " + super.toString().replace("Nummer", "ISSN");
 	}
 }

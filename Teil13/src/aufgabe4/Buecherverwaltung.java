@@ -1,18 +1,24 @@
 package aufgabe4;
-
+//this was supposed to be task12 but I overwrote it doing task14 and did not want to change it back.
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.*;
 import java.util.Scanner;
 
 public class Buecherverwaltung
 {
    private ArrayList<Buch> arr = new ArrayList<Buch>();
+   
+   public Buecherverwaltung(String dateiname){
+	   bestandLaden(dateiname);
+   }
 
    public void auswahlAnzeigen(){
       System.out.println("\nBitte Zahl und dann RETURN eingeben:");
       System.out.println ("<1> Buch anlegen");
       System.out.println ("<2> Bestand ausgeben");
-      System.out.println ("<3> Beenden");
+      System.out.println ("<3> Bestand speichern");
+      System.out.println ("<4> Beenden");
       auswahlAuswerten();
    }
 
@@ -32,16 +38,61 @@ public class Buecherverwaltung
             auswahlAnzeigen();
             break;
          }
-         case 3:
+         case 3:{
+        	 bestandSpeichern();
+        	 auswahlAnzeigen();
+             break;
+         }
+         case 4:
+        	System.out.println("\nBuecherverwaltung beendet.");
             break;
 
          default:
-            System.out.println ("Falsche Eingabe");
+            System.out.println ("Ungueltige Eingabe");
        }
       
       eingabe.close();
    }
+   
+   private void bestandLaden(String dateiname) {
+	   File file = new File(dateiname);
+	   if(file.exists()) {
+		   try{
+			   Scanner fileInputScanner = new Scanner(
+					   new FileInputStream(file));
+			   
+			   fileInputScanner.useDelimiter("\\s*:\\s*");
+			   
+			   while(fileInputScanner.hasNext()) {
+				   fileInputScanner.next();
+				   arr.add(new Buch (fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.next(), fileInputScanner.nextInt()));
+			   }
+			   fileInputScanner.close();
+		   }
+		   catch (FileNotFoundException e) {
+			   System.out.println("Error while reading file: " + e);
+		   }
+	   }
+   }
 
+   private void bestandSpeichern(){
+	   PrintStream pos = null;
+	   
+	   try {
+		   pos = new PrintStream(new FileOutputStream("daten.txt"));
+		   for(Buch x : arr) {
+			   pos.println(x + " :");
+		   }
+		   System.out.println("Speichern erfolgreich.");
+	   }
+	   catch (FileNotFoundException e) {
+		   System.out.println("Error on saving file: " + e);
+	   }
+	   
+	   pos.close();
+	   
+   }
+      
    private void bestandAusgeben(){
 	  Collections.sort(arr);
       for (Buch x : arr)
@@ -49,7 +100,7 @@ public class Buecherverwaltung
    }
 
    public static void main (String args[]){
-      Buecherverwaltung bibliothek = new Buecherverwaltung();
+      Buecherverwaltung bibliothek = new Buecherverwaltung("daten.txt");
       bibliothek.auswahlAnzeigen();
    }
 }

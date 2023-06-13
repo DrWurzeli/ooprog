@@ -1,0 +1,5 @@
+[Buch]: Java als erste Programmiersprache : zero to hero : 123-456-7890 : 5 :
+[Buch]: Testbuch2 :  : 987-654-3210 : 3 :
+[Buch]: TestBuch3 : testuntertitel3 : 951-753-852-6540 : 2 :
+[Buch]: TestBuch4 :  : 456-987-1230 : 1 :
+[Buch]: Testbuch5 : TestUntertitel123 : 123-321-8520 : 123 :
