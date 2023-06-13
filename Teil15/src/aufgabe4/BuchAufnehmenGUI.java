@@ -10,8 +10,6 @@ import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.ActionEvent;
 import aufgabe4.entitaeten.MediumVerwaltung;
 import aufgabe4.entitaeten.Buch;
