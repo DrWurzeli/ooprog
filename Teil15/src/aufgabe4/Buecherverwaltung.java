@@ -15,7 +15,7 @@ public class Buecherverwaltung extends JFrame
    public Buecherverwaltung()
    {
       // Konstruktor der Vaterklasse JFrame aufrufen.
-      super ("Büherverwaltung");
+      super ("Bücherverwaltung");
 
       // Layout-Manager für das Hauptfenster setzen.
       setLayout (new GridLayout (5, 1));
@@ -30,7 +30,7 @@ public class Buecherverwaltung extends JFrame
          public void windowClosing (WindowEvent e)
          {
             // Referenz auf Objekt vom Typ MediumVerwaltung holen.
-            MediumVerwaltung buecher = . . . . .
+            MediumVerwaltung buecher = 
             // B�cherbestand mit Hilfe des Objektes vom Typ
             // MediumVerwaltung in der Datei speichern.
             . . . . .
@@ -58,7 +58,7 @@ public class Buecherverwaltung extends JFrame
       . . . . .
 
       JButton ausleihe = new JButton ("Buchausleihe erfassen");
-      JButton rueckgabe = new JButton ("Buchr�ckgabe erfassen");
+      JButton rueckgabe = new JButton ("Buchrückgabe erfassen");
 
       // 5 Schaltfl�chen dem Hauptfenster hinzuf�gen.
       add (buchAufnehmen);
