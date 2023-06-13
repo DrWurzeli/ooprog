@@ -7,10 +7,11 @@ import javax.swing.JPanel;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.ActionEvent;
 import aufgabe4.entitaeten.MediumVerwaltung;
 import aufgabe4.entitaeten.Buch;
@@ -18,10 +19,10 @@ import aufgabe4.entitaeten.Buch;
 public class BuchAufnehmenGUI extends JDialog {
    private JButton aufnehmen = new JButton("Buch aufnehmen");
    private JButton abbrechen = new JButton("Abbrechen");
-   private JTextField titel = new JTextField(50);
-   private JTextField unterTitel = new JTextField(50);
-   private JTextField isbn = new JTextField(50);
-   private JTextField anzahl = new JTextField(50);
+   private JTextField titel = new JTextField(30);
+   private JTextField unterTitel = new JTextField(30);
+   private JTextField isbn = new JTextField(30);
+   private JTextField anzahl = new JTextField(30);
 
    private static final long serialVersionUID = 1L;
 
@@ -32,26 +33,30 @@ public class BuchAufnehmenGUI extends JDialog {
 
       buecher = MediumVerwaltung.getRefToInstance();
 
-      setLayout (new GridLayout (5, 1));
-
+      
+      GridLayout formGrid = new GridLayout(5,1);
+      formGrid.setVgap(10);
+      setLayout (formGrid);    
+      
       dialogAufbauen();
       controllerHinzufuegen();
       
-      pack();
+      setPreferredSize(new Dimension(300, 300));
       setMinimumSize(new Dimension(300,300));
+      
       setVisible (true);
    }
 
    private void dialogAufbauen() {
-	  FlowLayout left = new FlowLayout(FlowLayout.LEFT);
+	  FlowLayout left = new FlowLayout(FlowLayout.LEADING);
 	  FlowLayout center = new FlowLayout(FlowLayout.CENTER);
-	   
+      
       JPanel pane1 = new JPanel();
       pane1.setLayout(left);
-      pane1.add (new JLabel ("Titel: "));
+      pane1.add (new JLabel ("Titel:          "));
       pane1.add (titel);
       add (pane1);
-
+      
       JPanel pane2 = new JPanel();
       pane2.setLayout(left);
       pane2.add (new JLabel ("Untertitel: "));
@@ -60,13 +65,13 @@ public class BuchAufnehmenGUI extends JDialog {
 
       JPanel pane3 = new JPanel();
       pane3.setLayout(left);
-      pane3.add (new JLabel ("ISBN: "));
+      pane3.add (new JLabel ("ISBN:         "));
       pane3.add (isbn);
       add (pane3);
-
+      
       JPanel pane4 = new JPanel();
       pane4.setLayout(left);
-      pane4.add (new JLabel ("Anzahl: "));
+      pane4.add (new JLabel ("Anzahl:     "));
       pane4.add (anzahl);
       add (pane4);
 
@@ -75,9 +80,11 @@ public class BuchAufnehmenGUI extends JDialog {
       pane5.add (aufnehmen);
       pane5.add (abbrechen);
       add (pane5);
+
    }
 
    private void controllerHinzufuegen() {
+	   
       aufnehmen.addActionListener(new ActionListener() {
          public void actionPerformed (ActionEvent e) {
             // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.           
