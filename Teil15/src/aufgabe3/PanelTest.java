@@ -3,17 +3,19 @@ package aufgabe3;
 //Datei: PanelTest.java
 import javax.swing.*;
 import java.awt.*;
+
 public class PanelTest{
 	public static void main (String[] args) {
 		JFrame frame = new JFrame ("Hauptfenster");
+		
 		//1. leichtgewichtigen GUI-Container erzeugen und befüllen.
 		JPanel pane1 = new JPanel();
 		pane1.add(new JLabel("Senden an: "));
-		pane1.add(new TextField(20));
+		pane1.add(new TextField(25));
 		
 		//2. leichtgewichtigen GUI-Container erzeugen und befüllen.
 		JPanel pane2 = new JPanel();
-		pane2.add(new JTextArea(20, 30));
+		pane2.add(new JTextArea(15, 30));
 		
 		//3. leichtgewichtigen GUI-Container erzeugen und befüllen.
 		JPanel pane3 = new JPanel();
