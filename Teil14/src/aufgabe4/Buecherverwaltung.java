@@ -13,7 +13,8 @@ public class Buecherverwaltung
       System.out.println("\nBitte Zahl und dann RETURN eingeben:");
       System.out.println ("<1> Buch anlegen");
       System.out.println ("<2> Bestand ausgeben");
-      System.out.println ("<3> Beenden");
+      System.out.println ("<3> Bestand speichern");
+      System.out.println ("<4> Beenden");
       auswahlAuswerten();
    }
 
