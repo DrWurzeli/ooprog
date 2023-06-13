@@ -18,7 +18,7 @@ public class Buecherverwaltung extends JFrame {
       super ("Bücherverwaltung");
 
       // Layout-Manager für das Hauptfenster setzen.
-      setLayout (new GridLayout (5, 1));
+      setLayout (new GridLayout (6, 1));
 
       dialogAufbauen();
 
@@ -59,29 +59,38 @@ public class Buecherverwaltung extends JFrame {
 
       JButton ausleihe = new JButton ("Buchausleihe erfassen");
       JButton rueckgabe = new JButton ("Buchrückgabe erfassen");
+      
+      JButton close = new JButton("Programm beenden");
+      close.setActionCommand("Programm beenden");
+      close.addActionListener(controller);
 
       // 5 Schaltflächen dem Hauptfenster hinzufügen.
-      this.add(buchAufnehmen);
-      this.add(ausleiherAufnehmen);
-      this.add(bestandAnzeigen);
-      this.add(ausleihe);
-      this.add(rueckgabe);
+      add(buchAufnehmen);
+      add(ausleiherAufnehmen);
+      add(bestandAnzeigen);
+      add(ausleihe);
+      add(rueckgabe);
+      add(close);
    }
 
    public static void main (String args[]) {
       new Buecherverwaltung();
    }
 
-class ButtonController implements ActionListener {
-   public void actionPerformed (ActionEvent e) {
-      if (e.getActionCommand() == "Buch aufnehmen"){
-         new BuchAufnehmenGUI(Buecherverwaltung.this);
-      }
-      // Falls Schaltfläche "Bestand anzeigen" gedrückt wurde, erzeuge den
-      // Dialog BestandAnzeigenGUI.
-      else if (e.getActionCommand() == "Bestand anzeigen"){
-         new BestandAnzeigenGUI(Buecherverwaltung.this);
-      }
-   }
-}
+   class ButtonController implements ActionListener {
+	   public void actionPerformed (ActionEvent e) {
+		  switch(e.getActionCommand()) {
+		  	case "Buch aufnehmen":
+				new BuchAufnehmenGUI(Buecherverwaltung.this);
+				break;
+		  	case "Bestand anzeigen":
+		  		new BestandAnzeigenGUI(Buecherverwaltung.this);
+		  		break;
+		  	case "Programm beenden":
+		  		MediumVerwaltung.getRefToInstance().bestandSpeichern();
+		        setVisible(false);
+		        dispose();
+		  }
+	   }
+	}
 }
