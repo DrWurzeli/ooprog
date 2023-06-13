@@ -82,16 +82,17 @@ class TableModel extends AbstractTableModel
    }
 
    // Überschriebene Methode zur Rückgabe des Wertes einer Zelle.
-   public Object getValueAt (int row, int column) 
-   {
+   public Object getValueAt (int row, int column) {
       Buch ref = buecher.getBuch (row);
-      if (column == 0)
-         return ref.getTitel();
-      else if (column == 1)
-         return ref.getUnterTitel();
-      else if (column == 2)
-         return ref.getMediumNummer();
-      else
-         return ref.getAnzahlExemplare();
+      switch(column) {
+      	case 0:
+      		return ref.getTitel();
+      	case 1:
+      		return ref.getUnterTitel();
+      	case 2:
+      		return ref.getMediumNummer();
+      	default:
+      		return ref.getAnzahlExemplare();
+      }
    }
 }

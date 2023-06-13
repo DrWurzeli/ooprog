@@ -9,8 +9,6 @@ import javax.swing.JLabel;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import aufgabe4.entitaeten.MediumVerwaltung;
 import aufgabe4.entitaeten.Buch;
 
@@ -83,25 +81,20 @@ public class BuchAufnehmenGUI extends JDialog {
 
    private void controllerHinzufuegen() {
 	   
-      aufnehmen.addActionListener(new ActionListener() {
-         public void actionPerformed (ActionEvent e) {
-            // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.           
-            Buch guiBuch = new Buch(titel.getText(), unterTitel.getText(), isbn.getText(), Integer.parseInt(anzahl.getText()));
-            buecher.buchAufnehmen(guiBuch);
-            
-            // Dialog unsichtbar machen.
-            setVisible (false);
-            
-            // Dialog zerstören.
-            dispose();
-         }
-      });
+      aufnehmen.addActionListener(e -> {
+    	  	try {
+	            // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.           
+	            Buch guiBuch = new Buch(titel.getText(), unterTitel.getText(), isbn.getText(), Integer.parseInt(anzahl.getText()));
+	            buecher.buchAufnehmen(guiBuch);
+	            dispose();
+    	  	}
+    	  	catch(Exception error) {
+    	  		new ErrorGUI(error);
+    	  	}
+         });
 
-      abbrechen.addActionListener(new ActionListener() {
-         public void actionPerformed (ActionEvent e) {
-            setVisible(false);
+      abbrechen.addActionListener(e -> {
             dispose();
-         }
-      });
+         });
    }
 }

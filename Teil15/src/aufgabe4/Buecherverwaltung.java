@@ -30,7 +30,7 @@ public class Buecherverwaltung extends JFrame {
             // Referenz auf Objekt vom Typ MediumVerwaltung holen.
             MediumVerwaltung buecher = MediumVerwaltung.getRefToInstance();
             
-            // B�cherbestand mit Hilfe des Objektes vom Typ
+            // Bücherbestand mit Hilfe des Objektes vom Typ
             // MediumVerwaltung in der Datei speichern.
             buecher.bestandSpeichern();
          }
@@ -50,7 +50,7 @@ public class Buecherverwaltung extends JFrame {
       buchAufnehmen.addActionListener(controller);
 
       JButton ausleiherAufnehmen = new JButton ("Ausleiher aufnehmen");
-      ausleiherAufnehmen.setActionCommand("Ausleiher aufnehmen");
+      ausleiherAufnehmen.setActionCommand("addAusleiher");
       ausleiherAufnehmen.addActionListener(controller);
 
       JButton bestandAnzeigen = new JButton ("Bestand anzeigen");
@@ -83,12 +83,13 @@ public class Buecherverwaltung extends JFrame {
 		  	case "addBook":
 				new BuchAufnehmenGUI(Buecherverwaltung.this);
 				break;
+		  	case "addAusleiher":
+		  		break;
 		  	case "getBooks":
 		  		new BestandAnzeigenGUI(Buecherverwaltung.this);
 		  		break;
 		  	case "quitApp":
 		  		MediumVerwaltung.getRefToInstance().bestandSpeichern();
-		        setVisible(false);
 		        dispose();
 		        break;
 		    default:
