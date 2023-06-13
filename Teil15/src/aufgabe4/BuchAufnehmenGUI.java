@@ -13,8 +13,8 @@ import aufgabe4.entitaeten.MediumVerwaltung;
 import aufgabe4.entitaeten.Buch;
 
 public class BuchAufnehmenGUI extends JDialog {
-   private JButton aufnehmen = new JButton("Buch aufnehmen");
-   private JButton abbrechen = new JButton("Abbrechen");
+   private JButton aufnehmen;
+   private JButton abbrechen;
    private JTextField titel = new JTextField(30);
    private JTextField unterTitel = new JTextField(30);
    private JTextField isbn = new JTextField(30);
@@ -28,9 +28,8 @@ public class BuchAufnehmenGUI extends JDialog {
 	  super (parent, "Buch aufnehmen", true);
 
       buecher = MediumVerwaltung.getRefToInstance();
-
       
-      GridLayout formGrid = new GridLayout(5,1);
+      GridLayout formGrid = new GridLayout(5,1);   	  
       formGrid.setVgap(10);
       setLayout (formGrid);    
       
@@ -44,38 +43,20 @@ public class BuchAufnehmenGUI extends JDialog {
    }
 
    private void dialogAufbauen() {
-	  FlowLayout left = new FlowLayout(FlowLayout.LEADING);
 	  FlowLayout center = new FlowLayout(FlowLayout.CENTER);
       
-      JPanel pane1 = new JPanel();
-      pane1.setLayout(left);
-      pane1.add (new JLabel ("Titel:          "));
-      pane1.add (titel);
-      add (pane1);
-      
-      JPanel pane2 = new JPanel();
-      pane2.setLayout(left);
-      pane2.add (new JLabel ("Untertitel: "));
-      pane2.add (unterTitel);
-      add (pane2);
+      addDuoPanel("Titel:          ", titel);      
+      addDuoPanel("Untertitel: ", unterTitel);
+      addDuoPanel("ISBN:         ", isbn);    
+      addDuoPanel("Anzahl:    ", anzahl);
 
-      JPanel pane3 = new JPanel();
-      pane3.setLayout(left);
-      pane3.add (new JLabel ("ISBN:         "));
-      pane3.add (isbn);
-      add (pane3);
-      
-      JPanel pane4 = new JPanel();
-      pane4.setLayout(left);
-      pane4.add (new JLabel ("Anzahl:     "));
-      pane4.add (anzahl);
-      add (pane4);
-
-      JPanel pane5 = new JPanel();
-      pane5.setLayout (center);
-      pane5.add (aufnehmen);
-      pane5.add (abbrechen);
-      add (pane5);
+      JPanel panelBtn = new JPanel();
+      panelBtn.setLayout (center);
+      aufnehmen = new JButton("Buch aufnehmen");
+      panelBtn.add (aufnehmen);
+      abbrechen = new JButton("Abbrechen");
+      panelBtn.add (abbrechen);
+      add (panelBtn);
 
    }
 
@@ -83,7 +64,7 @@ public class BuchAufnehmenGUI extends JDialog {
 	   
       aufnehmen.addActionListener(e -> {
     	  	try {
-	            // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.           
+	            // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.   
 	            Buch guiBuch = new Buch(titel.getText(), unterTitel.getText(), isbn.getText(), Integer.parseInt(anzahl.getText()));
 	            buecher.buchAufnehmen(guiBuch);
 	            dispose();
@@ -96,5 +77,13 @@ public class BuchAufnehmenGUI extends JDialog {
       abbrechen.addActionListener(e -> {
             dispose();
          });
+   }
+   
+   private void addDuoPanel(String labelText, JTextField textFieldName){
+	   FlowLayout left = new FlowLayout(FlowLayout.LEFT);
+	   JPanel newPanel = new JPanel(left);
+	   newPanel.add(new JLabel (labelText));
+	   newPanel.add(textFieldName);
+	   add(newPanel);   
    }
 }

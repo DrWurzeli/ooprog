@@ -16,7 +16,7 @@ public class ErrorGUI extends JDialog{
 		GridLayout errorGrid = new GridLayout(2,1);
 		JDialog errorDialog = new JDialog(this, "ERROR-GUI", true);
 		
-		JLabel errorMessage = new JLabel("" + e.getClass());
+		JLabel errorMessage = new JLabel("" + e.getClass() + e.getMessage());
 		errorMessage.setForeground(Color.RED);
 		
 		JButton okButton = new JButton("Schließen");
