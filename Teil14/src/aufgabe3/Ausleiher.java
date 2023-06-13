@@ -1,5 +1,6 @@
 package aufgabe3;
 
+@SuppressWarnings("serial")
 public class Ausleiher extends Person {
 	private int ausleiherNummer;
 	

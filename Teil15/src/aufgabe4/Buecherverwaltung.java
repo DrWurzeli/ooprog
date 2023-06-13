@@ -10,12 +10,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import aufgabe4.entitaeten.MediumVerwaltung;
 
-public class Buecherverwaltung extends JFrame
-{
+public class Buecherverwaltung extends JFrame {
    private static final long serialVersionUID = 1L;
 
-   public Buecherverwaltung()
-   {
+   public Buecherverwaltung() {
       // Konstruktor der Vaterklasse JFrame aufrufen.
       super ("Bücherverwaltung");
 
@@ -27,12 +25,11 @@ public class Buecherverwaltung extends JFrame
       // Window-Listener zum Hauptfenster hinzufügen, um das
       // Ereignis abzufangen, das beim Schließen des Fensters
       // ausgelöst wird.
-      addWindowListener (new WindowAdapter()
-      {
-         public void windowClosing (WindowEvent e)
-         {
+      addWindowListener (new WindowAdapter() {
+         public void windowClosing (WindowEvent e) {
             // Referenz auf Objekt vom Typ MediumVerwaltung holen.
             MediumVerwaltung buecher = MediumVerwaltung.getRefToInstance();
+            
             // B�cherbestand mit Hilfe des Objektes vom Typ
             // MediumVerwaltung in der Datei speichern.
             buecher.bestandSpeichern();
@@ -44,8 +41,7 @@ public class Buecherverwaltung extends JFrame
       setVisible (true);
    }
 
-   private void dialogAufbauen()
-   {
+   private void dialogAufbauen() {
       // Controller-Objekt vom Typ ButtonController erzeugen.
       ButtonController controller = new ButtonController();
 
@@ -72,23 +68,19 @@ public class Buecherverwaltung extends JFrame
       this.add(rueckgabe);
    }
 
-   public static void main (String args[])
-   {
-      Buecherverwaltung fenster = new Buecherverwaltung();
+   public static void main (String args[]) {
+      new Buecherverwaltung();
    }
 
-class ButtonController implements ActionListener
-{
-   public void actionPerformed (ActionEvent e)
-   {
-      if (e.getActionCommand() == "Buch aufnehmen")
-      {
-         BuchAufnehmenGUI b = new BuchAufnehmenGUI(Buecherverwaltung.this);
+class ButtonController implements ActionListener {
+   public void actionPerformed (ActionEvent e) {
+      if (e.getActionCommand() == "Buch aufnehmen"){
+         new BuchAufnehmenGUI(Buecherverwaltung.this);
       }
       // Falls Schaltfläche "Bestand anzeigen" gedrückt wurde, erzeuge den
       // Dialog BestandAnzeigenGUI.
       else if (e.getActionCommand() == "Bestand anzeigen"){
-         BestandAnzeigenGUI b = new BestandAnzeigenGUI(Buecherverwaltung.this);
+         new BestandAnzeigenGUI(Buecherverwaltung.this);
       }
    }
 }

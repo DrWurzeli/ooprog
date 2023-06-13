@@ -13,8 +13,7 @@ import java.awt.event.ActionEvent;
 import aufgabe4.entitaeten.MediumVerwaltung;
 import aufgabe4.entitaeten.Buch;
 
-public class BuchAufnehmenGUI extends JDialog
-{
+public class BuchAufnehmenGUI extends JDialog {
    private JButton aufnehmen = new JButton("Buch aufnehmen");
    private JButton abbrechen = new JButton("Abbrechen");
    private JTextField titel = new JTextField (30);
@@ -26,8 +25,7 @@ public class BuchAufnehmenGUI extends JDialog
 
    private MediumVerwaltung buecher;
 
-   public BuchAufnehmenGUI(JFrame parent)
-   {
+   public BuchAufnehmenGUI(JFrame parent) {
 	  super (parent, "Buch aufnehmen", true);
 
       buecher = MediumVerwaltung.getRefToInstance();
@@ -41,8 +39,7 @@ public class BuchAufnehmenGUI extends JDialog
       setVisible (true);
    }
 
-   private void dialogAufbauen()
-   {
+   private void dialogAufbauen() {
       JPanel pane1 = new JPanel();
       pane1.setLayout (new FlowLayout(FlowLayout.LEFT));
       pane1.add (new JLabel ("Titel:         "));
@@ -74,28 +71,23 @@ public class BuchAufnehmenGUI extends JDialog
       add (pane5);
    }
 
-   private void controllerHinzufuegen()
-   {
-      aufnehmen.addActionListener(new ActionListener()
-      {
-         public void actionPerformed (ActionEvent e)
-         {
-            // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.
-            MediumVerwaltung mediumVerwaltung = MediumVerwaltung.getRefToInstance();
-            
+   private void controllerHinzufuegen() {
+      aufnehmen.addActionListener(new ActionListener() {
+         public void actionPerformed (ActionEvent e) {
+            // Methode buchAufnehmen() der Klasse MediumVerwaltung aufrufen.           
             Buch guiBuch = new Buch(titel.getText(), unterTitel.getText(), isbn.getText(), Integer.parseInt(anzahl.getText()));
-            mediumVerwaltung.buchAufnehmen(guiBuch);
+            buecher.buchAufnehmen(guiBuch);
+            
             // Dialog unsichtbar machen.
             setVisible (false);
+            
             // Dialog zerstören.
             dispose();
          }
       });
 
-      abbrechen.addActionListener(new ActionListener()
-      {
-         public void actionPerformed (ActionEvent e)
-         {
+      abbrechen.addActionListener(new ActionListener() {
+         public void actionPerformed (ActionEvent e) {
             setVisible(false);
             dispose();
          }

@@ -3,7 +3,6 @@ package aufgabe4.entitaeten;
 
 import java.util.Scanner;
 import java.util.Vector;
-import java.util.Collections;
 import java.io.*;
 
 public class MediumVerwaltung
@@ -31,6 +30,7 @@ public class MediumVerwaltung
                                scan.next(),scan.nextInt()));
             }
             fis.close();
+            scan.close();
          }
       }
       catch (Exception e)
