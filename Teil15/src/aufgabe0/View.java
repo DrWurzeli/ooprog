@@ -7,7 +7,7 @@ public class View {
 
 	public static void main(String[] args) {
 		
-		JFrame frame = new JFrame("Testfenser");
+		JFrame frame = new JFrame("Testfenster");
 		JButton btn1 = new JButton ("Testbutton");
 		
 		frame.setLayout(new FlowLayout());
