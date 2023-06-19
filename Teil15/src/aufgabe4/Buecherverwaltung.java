@@ -89,7 +89,7 @@ public class Buecherverwaltung extends JFrame {
 		  		MediumVerwaltung.getRefToInstance().bestandSpeichern();
 		  		dispose();
 		  	}
-		    default -> throw new IllegalArgumentException("What did you click?? :" + e.getActionCommand());
+		    default -> new ErrorGUI(new IllegalArgumentException("Error on click: " + e.getActionCommand()));
 		  }
 	   }
 	}
