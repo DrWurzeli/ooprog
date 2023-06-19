@@ -43,15 +43,14 @@ public class BuchAufnehmenGUI extends JDialog {
    }
 
    private void dialogAufbauen() {
-	  FlowLayout center = new FlowLayout(FlowLayout.CENTER);
       
       addDuoPanel("Titel:          ", titel);      
       addDuoPanel("Untertitel: ", unterTitel);
       addDuoPanel("ISBN:         ", isbn);    
-      addDuoPanel("Anzahl:    ", anzahl);
+      addDuoPanel("Anzahl:     ", anzahl);
 
       JPanel panelBtn = new JPanel();
-      panelBtn.setLayout (center);
+      panelBtn.setLayout (new FlowLayout(FlowLayout.CENTER));
       aufnehmen = new JButton("Buch aufnehmen");
       panelBtn.add (aufnehmen);
       abbrechen = new JButton("Abbrechen");
@@ -80,7 +79,7 @@ public class BuchAufnehmenGUI extends JDialog {
    }
    
    private void addDuoPanel(String labelText, JTextField textFieldName){
-	   FlowLayout left = new FlowLayout(FlowLayout.LEFT);
+	   FlowLayout left = new FlowLayout(FlowLayout.CENTER);
 	   JPanel newPanel = new JPanel(left);
 	   newPanel.add(new JLabel (labelText));
 	   newPanel.add(textFieldName);
