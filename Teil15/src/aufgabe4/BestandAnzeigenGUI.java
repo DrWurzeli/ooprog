@@ -1,11 +1,15 @@
 package aufgabe4;
 
 import javax.swing.JTable;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.lang.reflect.Array;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableRowSorter;
@@ -21,7 +25,7 @@ public class BestandAnzeigenGUI extends JDialog
       super (parent, "Bestand anzeigen", true);
 
       dialogAufbauen();
-
+      setLayout(new GridLayout(2,1));
       pack();
       setVisible (true);
    }
@@ -46,6 +50,15 @@ public class BestandAnzeigenGUI extends JDialog
       scrollingTable.setPreferredSize (new Dimension (500, 100));
       // Hinzufügen des GUI-Containers zum Dialogfenster.
       add (scrollingTable);
+      
+      JButton close = new JButton("Schließen");
+      close.addActionListener(e -> dispose());
+      
+      JPanel buttonPanel = new JPanel();
+      buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+      buttonPanel.add(close);
+      
+      add(buttonPanel);
    }
 }
 
