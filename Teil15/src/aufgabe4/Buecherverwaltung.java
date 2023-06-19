@@ -50,8 +50,10 @@ public class Buecherverwaltung extends JFrame {
       buchAufnehmen.addActionListener(controller);
 
       JButton ausleiherAufnehmen = new JButton ("Ausleiher aufnehmen");
+      /*
       ausleiherAufnehmen.setActionCommand("addAusleiher");
       ausleiherAufnehmen.addActionListener(controller);
+      */
 
       JButton bestandAnzeigen = new JButton ("Bestand anzeigen");
       bestandAnzeigen.setActionCommand("getBooks");
@@ -80,20 +82,14 @@ public class Buecherverwaltung extends JFrame {
    class ButtonController implements ActionListener {
 	   public void actionPerformed (ActionEvent e) {
 		  switch(e.getActionCommand()) {
-		  	case "addBook":
-				new BuchAufnehmenGUI(Buecherverwaltung.this);
-				break;
-		  	case "addAusleiher":
-		  		break;
-		  	case "getBooks":
-		  		new BestandAnzeigenGUI(Buecherverwaltung.this);
-		  		break;
-		  	case "quitApp":
+		  	case "addBook" -> new BuchAufnehmenGUI(Buecherverwaltung.this);
+		  	//case "addAusleiher" -> ;
+		  	case "getBooks" -> new BestandAnzeigenGUI(Buecherverwaltung.this);
+		  	case "quitApp" -> {
 		  		MediumVerwaltung.getRefToInstance().bestandSpeichern();
-		        dispose();
-		        break;
-		    default:
-		    	throw new IllegalArgumentException("What did you click?? :" + e.getActionCommand());
+		  		dispose();
+		  	}
+		    default -> throw new IllegalArgumentException("What did you click?? :" + e.getActionCommand());
 		  }
 	   }
 	}
