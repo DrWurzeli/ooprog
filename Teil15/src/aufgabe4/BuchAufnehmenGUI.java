@@ -73,9 +73,7 @@ public class BuchAufnehmenGUI extends JDialog {
     	  	}
          });
 
-      abbrechen.addActionListener(e -> {
-            dispose();
-         });
+      abbrechen.addActionListener(e -> dispose());
    }
    
    private void addDuoPanel(String labelText, JTextField textFieldName){
